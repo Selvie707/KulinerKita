@@ -94,69 +94,57 @@ public class AdapterKuliner extends RecyclerView.Adapter<AdapterKuliner.VHKuline
             tvAsal = itemView.findViewById(R.id.tv_listitemkuliner_asal);
             tvDeskripsiSingkat = itemView.findViewById(R.id.tv_listitemkuliner_deskripsisingkat);
             tvDeskripsiPanjang = itemView.findViewById(R.id.tv_listitemkuliner_deskripsilengkap);
-
-//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//                                                        @Override
-//                                                        public boolean onLongClick(View view) {
-//                                                            String idRumahSakit = tvId.getText().toString();
-//                                                            AlertDialog.Builder dialog = new
-//                                                                    AlertDialog.Builder(ctx);
-//                                                            dialog.setTitle("Perhatian");
-//                                                            dialog.setMessage("Pilih perintah yang diinginkan");
-//                                                                    dialog.setCancelable(true);
-//                                                            dialog.setNegativeButton("Hapus", new
-//                                                                    DialogInterface.OnClickListener() {
-//                                                                        @Override
-//                                                                        public void onClick(DialogInterface
-//                                                                                                    dialogInterface, int i) {
-//                                                                            hapusRumahSakit(idRumahSakit);
-//                                                                            dialogInterface.dismiss();
-//                                                                        }
-//                                                                    });
-//                                                            dialog.setPositiveButton("Ubah", new
-//                                                                    DialogInterface.OnClickListener() {
-//                                                                        @Override
-//                                                                        public void onClick(DialogInterface
-//                                                                                                    dialogInterface, int i) {
-//                                                                            Intent intent = new Intent(ctx,
-//                                                                                    UbahActivity.class);
-//                                                                            intent.putExtra("xId",
-//                                                                                    tvId.getText().toString());
-//                                                                            intent.putExtra("xNama",
-//                                                                                    tvNama.getText().toString());
-//                                                                            intent.putExtra("xAsal",
-//                                                                                    tvAsal.getText().toString());
-//                                                                            intent.putExtra("xDeskSingkat",
-//                                                                                    tvDeskripsiSingkat.getText().toString());
-//                                                                            intent.putExtra("xDeskLengkap",
-//                                                                                    tvDeskripsiPanjang.getText().toString());
-//                                                                            ctx.startActivity(intent);
-//                                                                        }
-//                                                                    });
-//                                                            dialog.show();
-//                                                            return false;
-//                                                        }
-//                                                    });
-//        }
-//        private void hapusRumahSakit(String id){
-//            APIRequestData API =
-//                    RetroServer.connectRetrofit().create(APIRequestData.class);
-//            Call<ModelResponse> proses = API.ardDelete(id);
-//            proses.enqueue(new Callback<ModelResponse>() {
-//                @Override
-//                public void onResponse(Call<ModelResponse> call,
-//                                       Response<ModelResponse> response) {
-//                    String kode = response.body().getKode();
-//                    String pesan = response.body().getPesan();
-//                    Toast.makeText(ctx, "Kode: "+kode+ "| Pesan:" +pesan, Toast.LENGTH_SHORT).show();
-//                    ((MainActivity) ctx).retrieverKuliner();
-//                }
-//                @Override
-//                public void onFailure(Call<ModelResponse> call,
-//                                      Throwable t) {
-//                    Toast.makeText(ctx, "Gagal menghubungi server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String idRumahSakit = tvId.getText().toString();
+                    AlertDialog.Builder dialog = new
+                            AlertDialog.Builder(ctx);
+                    dialog.setTitle("Perhatian");
+                    dialog.setMessage("Pilih perintah yang diinginkan");
+                    dialog.setCancelable(true);
+                    dialog.setNegativeButton("Hapus", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            hapusRumahSakit(idRumahSakit);
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    dialog.setPositiveButton("Ubah", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(ctx, UbahActivity.class);
+                            intent.putExtra("xId", tvId.getText().toString());
+                            intent.putExtra("xNama", tvNama.getText().toString());
+                            intent.putExtra("xAsal", tvAsal.getText().toString());
+                            intent.putExtra("xDeskSingkat", tvDeskripsiSingkat.getText().toString());
+                            intent.putExtra("xDeskLengkap", tvDeskripsiPanjang.getText().toString());
+                            intent.putExtra("xFoto", (String) ivPhoto.getTag());
+                            ctx.startActivity(intent);
+                        }
+                    });
+                    dialog.show();
+                }
+            });
+        }
+        private void hapusRumahSakit(String id){
+            APIRequestData API =
+                    RetroServer.connectRetrofit().create(APIRequestData.class);
+            Call<ModelResponse> proses = API.ardDelete(id);
+            proses.enqueue(new Callback<ModelResponse>() {
+                @Override
+                public void onResponse(Call<ModelResponse> call, Response<ModelResponse> response) {
+                    String kode = response.body().getKode();
+                    String pesan = response.body().getPesan();
+                    Toast.makeText(ctx, "Kode: "+kode+ "| Pesan:" +pesan, Toast.LENGTH_SHORT).show();
+                    ((MainActivity) ctx).retrieverKuliner();
+                }
+                @Override
+                public void onFailure(Call<ModelResponse> call,
+                                      Throwable t) {
+                    Toast.makeText(ctx, "Gagal menghubungi server: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
     }

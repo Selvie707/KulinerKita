@@ -12,30 +12,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Tambah Data Bandara"
+        android:text="Tambah Menu Baru"
         android:layout_marginBottom="16dp"
         android:textSize="26sp"
         android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/iv_tambah_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu"
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/et_tambah_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Bandara"
+        android:hint="Nama Menu"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/et_tambah_kota"
+        android:id="@+id/et_tambah_asal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Kota/Kabupaten Bandara"
+        android:hint="Asal Menu"
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/et_tambah_alamat"
+        android:id="@+id/et_tambah_desksingkat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Alamat Bandara"
+        android:hint="Deskripsi Singkat Menu"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/et_tambah_desklengkap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi Lengkap Menu"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/et_tambah_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Link Foto Menu"
         android:layout_marginBottom="16dp"/>
 
     <Button

@@ -15,7 +15,6 @@ public interface APIRequestData {
     @FormUrlEncoded
     @POST("create.php")
     Call<ModelResponse> ardCreate(
-            @Field("id") String id,
             @Field("nama") String nama,
             @Field("asal") String asal,
             @Field("deskripsi_singkat") String deskripsi_singkat,
@@ -36,6 +35,7 @@ public interface APIRequestData {
             @Field("nama") String nama,
             @Field("asal") String asal,
             @Field("deskripsi_singkat") String deskripsi_singkat,
-            @Field("deskripsi_lengkap") String deskripsi_lengkap
+            @Field("deskripsi_lengkap") String deskripsi_lengkap,
+            @Field("photo") String photo
     );
 }

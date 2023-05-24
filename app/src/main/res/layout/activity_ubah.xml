@@ -12,36 +12,58 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Ubah Data Bandara"
+        android:text="Ubah Data Menu"
         android:layout_marginBottom="16dp"
         android:textSize="26sp"
         android:textStyle="bold"/>
 
+    <ImageView
+        android:id="@+id/iv_ubah_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu"
+        android:layout_gravity="center_horizontal"/>
+
     <EditText
-        android:id="@+id/et_tambah_nama"
+        android:id="@+id/et_ubah_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Bandara"
+        android:hint="Nama Menu"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/et_tambah_kota"
+        android:id="@+id/et_ubah_asal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Kota/Kabupaten Bandara"
+        android:hint="Asal Menu"
         android:layout_marginBottom="16dp"/>
 
     <EditText
-        android:id="@+id/et_tambah_alamat"
+        android:id="@+id/et_ubah_desksingkat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Alamat Bandara"
+        android:hint="Deskripsi Singkat Menu"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/et_ubah_desklengkap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi Lengkap Menu"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/et_ubah_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Link Foto Menu"
         android:layout_marginBottom="16dp"/>
 
     <Button
-        android:id="@+id/btn_tambah_tambah"
+        android:id="@+id/btn_ubah_ubah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tambah"/>
+        android:text="Ubah"/>
 
 </LinearLayout>
